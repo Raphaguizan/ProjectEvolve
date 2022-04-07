@@ -202,7 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 2
   sensorNum: 2
-  answers:
+  _answers:
   - id: 0
     tag: 
     distance: -1
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918044257}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9267587ca3e88644aee9e961e3e7290, type: 3}
   m_Name: 
@@ -386,7 +386,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918044257}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b8f55f2dab38cc4eb6571e2af427354, type: 3}
   m_Name: 
