@@ -22,9 +22,17 @@ namespace Game.Creature
 
         private void Start()
         {
-            mov = GetComponent<Movement>();
+            mov = GetComponent<Movement>(); 
+        }
+
+        private void OnEnable()
+        {
             RandomizeVector();
             StartCoroutine(RandomTime());
+        }
+        private void OnDisable()
+        {
+            StopAllCoroutines();
         }
 
         IEnumerator RandomTime()

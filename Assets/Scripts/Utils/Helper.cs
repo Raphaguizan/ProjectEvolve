@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -31,14 +32,7 @@ namespace Game.Util
         {
             return b1 + (s - a1) * (b2 - b1) / (a2 - a1);
         }
-        public static Vector3 Randomize(this Vector3 v)
-        {
-            return new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-        }
-        public static Vector2 Randomize(this Vector2 v)
-        {
-            return new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-        }
+        
         public static Vector2 Rotate(this Vector2 v, float degrees)
         {
             float sin = Mathf.Sin(degrees * Mathf.Deg2Rad);
@@ -50,6 +44,37 @@ namespace Game.Util
             v.y = (sin * tx) + (cos * ty);
             return v;
         }
+
+        #region Random
+        public static Vector3 Randomize(this Vector3 v)
+        {
+            return new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        }
+        public static Vector2 Randomize(this Vector2 v)
+        {
+            return new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+        }
+        public static Color Randomize(this Color c)
+        {
+            return new Color(Random.value, Random.value, Random.value, 1f);
+        }
+        public static T GetRandom<T>(this List<T> list)
+        {
+            return list[Random.Range(0, list.Count)];
+        }
+        public static T GetRandomExcept<T>(this List<T> list, T unique)
+        {
+            if (list.Count == 1)
+                return unique;
+
+            T result = list[Random.Range(0, list.Count)];
+            if (result.Equals(unique))
+            {
+                result = GetRandomExcept(list, unique);
+            }
+            return result;
+        }
+        #endregion
     }
 }
 

@@ -54,5 +54,10 @@ namespace Game.Creature
 
             currentTween = graphic.transform.DORotateQuaternion(Quaternion.AngleAxis(angle, Vector3.forward), rotationTime);
         }
+        private void OnDisable()
+        {
+            currentTween.Complete();
+            currentTween = null;
+        }
     }
 }
