@@ -13,6 +13,9 @@ namespace Game.DNA
         public Sprite SpecieImage;
         public GenderTypes Gender;
 
+        [Tag]
+        public List<string> _foodTags = new List<string>();
+
         public float LifeTime;
         public float DecayMult;
 

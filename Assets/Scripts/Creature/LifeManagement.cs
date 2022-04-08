@@ -11,11 +11,11 @@ namespace Game.Creature
         [Header("GENES"), SerializeField]
         private float _coupleDesireSpeed = .05f;
         private float _gestationTime = 4f;
-
-        [Header("FOOD TYPE"), SerializeField, Tag]
-        private string _waterTag = "Water";
         [SerializeField, Tag]
         private List<string> _foodTags = new List<string>();
+
+        [Space, SerializeField, Tag]
+        private string _waterTag = "Water";
 
         [Header("STATS")]
         [SerializeField, ProgressBar("Hunger", 1f, EColor.Red)]
