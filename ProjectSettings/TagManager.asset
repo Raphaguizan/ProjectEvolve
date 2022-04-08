@@ -5,9 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
-  - Food
-  - Bixo
-  - Predator
+  - Cheese
+  - Rat
+  - Water
   layers:
   - Default
   - TransparentFX

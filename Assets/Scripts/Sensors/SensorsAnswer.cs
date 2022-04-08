@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
-namespace Game.Sensor
+namespace Game.Creature.Sensor
 {
     [Serializable]
     public class SensorsAnswer

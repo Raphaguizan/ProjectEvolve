@@ -4,11 +4,12 @@ using UnityEngine;
 using DG.Tweening;
 using NaughtyAttributes;
 using Unity.Mathematics;
+using Game.DNA;
 
 namespace Game.Creature
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class Movement : MonoBehaviour
+    public class Movement : DNAUser
     {
         [Header("GENES")]
         [SerializeField]

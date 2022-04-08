@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.DNA;
 using Game.Util;
 
-namespace Game.Sensor
+namespace Game.Creature.Sensor
 {
-    public class Sensors : MonoBehaviour
+    public class Sensors : DNAUser
     {
         [Header("GENES")]
         public float distance = 1f;
@@ -15,11 +16,7 @@ namespace Game.Sensor
 
         public List<SensorsAnswer> SensAnswers => _answers;
 
-        private void Awake()
-        {
-            InitializeSensor();
-        }
-        private void OnValidate()
+        protected override void Init()
         {
             InitializeSensor();
         }

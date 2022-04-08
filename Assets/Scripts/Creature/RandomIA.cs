@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 using Game.Util;
+using Game.DNA;
 
 namespace Game.Creature
 {
     [RequireComponent(typeof(Movement))]
-    public class RandomIA : MonoBehaviour
+    public class RandomIA : DNAUser
     {
         [Header("GENES"),SerializeField]
         private Vector2 randomTime = Vector2.zero;
