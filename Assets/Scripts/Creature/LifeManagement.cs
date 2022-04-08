@@ -6,11 +6,14 @@ using NaughtyAttributes;
 
 namespace Game.Creature
 {
-    public class LifeManagement : DNAUser
+    public class LifeManagement : DNAUser, IFood
     {
         [Header("GENES"), SerializeField]
         private float _coupleDesireSpeed = .05f;
+        [SerializeField]
         private float _gestationTime = 4f;
+        [SerializeField]
+        private float _valueAsFood = .2f;
         [SerializeField, Tag]
         private List<string> _foodTags = new List<string>();
 
@@ -31,12 +34,18 @@ namespace Game.Creature
         // private
         private float _currentDecay = 0;
 
+        #region SETUP
         protected override void Init()
         {
             _currentHunger = 1f;
             _currentThirst = 1f;
             _currentDecay = myDNA.DecayMult;
         }
+        private void OnDisable()
+        {
+            StopAllCoroutines();
+        }
+        #endregion
 
         #region Updates
         private void Update()
@@ -115,11 +124,15 @@ namespace Game.Creature
         }
         #endregion
 
-
         #region DEATH
         public void Die()
         {
             gameObject.SetActive(false);
+        }
+
+        public float GetValue()
+        {
+            return _valueAsFood;
         }
         #endregion
     }

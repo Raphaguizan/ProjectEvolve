@@ -15,10 +15,22 @@ namespace Game.Creature
         }
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            var other = collision.gameObject.GetComponent<LifeManagement>();
-            if (other.CoupleDesire >.5f)
+            var food = collision.gameObject.GetComponent<IFood>();
+            if (food != null )
             {
-                lifeManagement.Reproduce(other.myDNA);
+                if (lifeManagement.Consume(collision.transform.tag, food.GetValue()))
+                {
+                    food.Die();
+                    return;
+                }
+            }
+            var other = collision.gameObject.GetComponent<LifeManagement>();
+            if (other != null)
+            {
+                if (other.CoupleDesire > .5f)
+                {
+                    lifeManagement.Reproduce(other.myDNA);
+                }
             }
         }
     }
