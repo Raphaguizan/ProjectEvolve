@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Game.DNA;
 using NaughtyAttributes;
+using Game.CrowdManager;
 
 namespace Game.Creature
 {
     public class LifeManagement : DNAUser, IFood
     {
+        [Header("Setup")]
+        [SerializeField]
+        private PoolingObj creaturePooling;
         [Header("GENES"), SerializeField]
         private float _coupleDesireSpeed = .05f;
         [SerializeField]
@@ -33,10 +37,14 @@ namespace Game.Creature
         public float CoupleDesire => _coupleDesire;
         // private
         private float _currentDecay = 0;
+        [SerializeField, ReadOnly]
+        private bool _isPregnant = false;
 
         #region SETUP
         protected override void Init()
         {
+            creaturePooling = GetComponentInParent<PoolingObj>();
+
             _currentHunger = 1f;
             _currentThirst = 1f;
             _currentDecay = myDNA.DecayMult;
@@ -66,6 +74,7 @@ namespace Game.Creature
 
         private void IncreaseDesire()
         {
+            if (_isPregnant) return;
             _coupleDesire += _coupleDesireSpeed * Time.deltaTime;
             if(_coupleDesire > 1f)
                 _coupleDesire = 1f;
@@ -104,22 +113,31 @@ namespace Game.Creature
         #endregion
 
         #region REPRODUTION
-        public void Reproduce(DNA_Obj other)
+        private void ResetDesire()
         {
-            if (myDNA.Gender != GenderTypes.FEMALE || myDNA.Gender == other.Gender) return;
-            DNA_Obj newLife = myDNA.ReproduceDNA(other);
+            _coupleDesire = 0f;
+        }
+        public void Reproduce(LifeManagement other)
+        {
+            if (myDNA.Gender != GenderTypes.FEMALE || myDNA.Gender == other.myDNA.Gender) return;
+
+            ResetDesire();
+            other.ResetDesire();
+            
+            DNA_Obj newLife = myDNA.ReproduceDNA(other.myDNA);
             StartCoroutine(Gestation(newLife));
         }
         IEnumerator Gestation(DNA_Obj childDNA)
         {
+            _isPregnant = true;
             yield return new WaitForSeconds(_gestationTime);
             Childbirth(childDNA);
+            _isPregnant = false;
         }
 
         private void Childbirth(DNA_Obj childDNA)
         {
-            GameObject childPrefab = Resources.Load("Prefabs/PFB_CREATURE") as GameObject;
-            var childAux = Instantiate(childPrefab);
+            var childAux = creaturePooling.Add();
             childAux.GetComponent<BornSetup>().StartNewLife(childDNA);
         }
         #endregion

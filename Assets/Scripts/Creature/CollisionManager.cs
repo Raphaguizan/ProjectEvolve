@@ -7,7 +7,7 @@ namespace Game.Creature
     [RequireComponent(typeof(LifeManagement))]
     public class CollisionManager : MonoBehaviour
     {
-        LifeManagement lifeManagement;
+        private LifeManagement lifeManagement;
 
         private void Start()
         {
@@ -16,6 +16,7 @@ namespace Game.Creature
         private void OnCollisionEnter2D(Collision2D collision)
         {
             var food = collision.gameObject.GetComponent<IFood>();
+            var other = collision.gameObject.GetComponent<LifeManagement>();
             if (food != null )
             {
                 if (lifeManagement.Consume(collision.transform.tag, food.GetValue()))
@@ -24,12 +25,12 @@ namespace Game.Creature
                     return;
                 }
             }
-            var other = collision.gameObject.GetComponent<LifeManagement>();
-            if (other != null)
+            else if (other != null)
             {
                 if (other.CoupleDesire > .5f)
                 {
-                    lifeManagement.Reproduce(other.myDNA);
+                    Debug.Log("Reproduction Between "+gameObject.name+" and "+ other.gameObject.name);
+                    lifeManagement.Reproduce(other);
                 }
             }
         }
