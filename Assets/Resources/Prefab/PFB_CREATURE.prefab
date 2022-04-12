@@ -251,8 +251,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myDNA: {fileID: 0}
+  creaturePooling: {fileID: 0}
   _coupleDesireSpeed: 0.02
-  _gestationTime: 4
+  _gestationTime: 5
   _valueAsFood: 0.2
   _foodTags:
   - Cheese
@@ -260,6 +261,7 @@ MonoBehaviour:
   _currentHunger: 1
   _currentThirst: 1
   _coupleDesire: 0
+  _isPregnant: 0
 --- !u!114 &6340393282024628910
 MonoBehaviour:
   m_ObjectHideFlags: 0

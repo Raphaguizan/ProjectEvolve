@@ -9,14 +9,13 @@ namespace Game.Creature
     {
         private LifeManagement lifeManagement;
 
-        private void Start()
+        private void Awake()
         {
             lifeManagement = GetComponent<LifeManagement>();
         }
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            var food = collision.gameObject.GetComponent<IFood>();
-            var other = collision.gameObject.GetComponent<LifeManagement>();
+            var food = collision.gameObject.GetComponent<IConsumable>();
             if (food != null )
             {
                 if (lifeManagement.Consume(collision.transform.tag, food.GetValue()))
@@ -25,7 +24,8 @@ namespace Game.Creature
                     return;
                 }
             }
-            else if (other != null)
+            var other = collision.gameObject.GetComponent<LifeManagement>();
+            if (other != null)
             {
                 if (other.CoupleDesire > .5f)
                 {

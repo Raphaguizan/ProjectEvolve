@@ -7,7 +7,7 @@ using Game.CrowdManager;
 
 namespace Game.Creature
 {
-    public class LifeManagement : DNAUser, IFood
+    public class LifeManagement : DNAUser, IConsumable
     {
         [Header("Setup")]
         [SerializeField]
@@ -137,7 +137,7 @@ namespace Game.Creature
 
         private void Childbirth(DNA_Obj childDNA)
         {
-            var childAux = creaturePooling.Add();
+            var childAux = creaturePooling.Add(transform.position);
             childAux.GetComponent<BornSetup>().StartNewLife(childDNA);
         }
         #endregion

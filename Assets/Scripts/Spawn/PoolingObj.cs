@@ -22,7 +22,12 @@ namespace Game.CrowdManager
             obj.SetActive(false);
         }
 
-        public GameObject Add()
+        public void Add()
+        {
+            GameObject newObj = Add(RandomizePos());
+        }
+
+        public GameObject Add(Vector3 pos)
         {
             GameObject resp = null;
             foreach (Transform trans in transform)
@@ -36,8 +41,8 @@ namespace Game.CrowdManager
             if(resp == null)
                 resp = Instantiate(objectPool, transform);
 
+            resp.transform.position = pos;
             resp.SetActive(true);
-            resp.transform.position = RandomizePos();
             return resp;
         }
 

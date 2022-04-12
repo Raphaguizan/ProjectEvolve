@@ -34,7 +34,7 @@ namespace Game.CrowdManager
             {
                 for (int i = 0; i < qty; i++)
                 {
-                    _=objs.Add();
+                    objs.Add();
                 }
                 yield return new WaitForSeconds(delayTime);
             }
