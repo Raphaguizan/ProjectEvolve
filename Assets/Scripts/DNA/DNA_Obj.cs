@@ -44,10 +44,10 @@ namespace Game.DNA
 
         private DNA_Obj LerpGenes(DNA_Obj dna1, DNA_Obj dna2)
         {
-            //return new DNA_Obj(SpecieTag, SpecieImage);
-            DNA_Obj newDNA = ScriptableObject.CreateInstance<DNA_Obj>();
-            newDNA.Init(SpecieTag, SpecieImage);
-            return newDNA;
+            return new DNA_Obj(SpecieTag, SpecieImage);
+            //DNA_Obj newDNA = ScriptableObject.CreateInstance<DNA_Obj>();
+            //newDNA.Init(SpecieTag, SpecieImage);
+            //return newDNA;
         }
 
         private void MakeMutations()

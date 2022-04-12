@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Game.Creature;
 using Game.Util.RandomValue;
+using Game.Util;
 
 namespace Game.CrowdManager
 {
     public class PoolingObj : MonoBehaviour
     {
         [SerializeField]
-        private GameObject objectPool;
+        private List<GameObject> objectPool;
 
         [Header("Random Position")]
         [SerializeField]
@@ -39,7 +40,7 @@ namespace Game.CrowdManager
             }
             
             if(resp == null)
-                resp = Instantiate(objectPool, transform);
+                resp = Instantiate(objectPool.GetRandom<GameObject>(), transform);
 
             resp.transform.position = pos;
             resp.SetActive(true);

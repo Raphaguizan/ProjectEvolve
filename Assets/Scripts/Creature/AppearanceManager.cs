@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Game.DNA;
 using UnityEngine;
+using NaughtyAttributes;
 
 namespace Game.Creature
 {
@@ -10,25 +11,24 @@ namespace Game.Creature
     {
         [Header("GENES")]
         [SerializeField]
+        private Sprite sprite;
+        [SerializeField]
         private Color color;
         [SerializeField]
         private float size = 1f;
+        [Space, SerializeField, ReadOnly]
         private SpriteRenderer spRend;
+
+        private void OnValidate()
+        {
+            spRend = GetComponent<SpriteRenderer>();
+        }
+
         protected override void Init()
         {
             base.Init();
-            spRend = GetComponent<SpriteRenderer>();
-            SetColor();
-            SetSize();
-        }
-
-        private void SetColor()
-        {
+            spRend.sprite = sprite;
             spRend.color = color;
-        }
-
-        private void SetSize()
-        {
             transform.localScale = Vector3.one * size;
         }
     }
