@@ -7,7 +7,7 @@ namespace Game.DNA
     public class DNAUser : MonoBehaviour, IDNAUser
     {
         public DNA_Obj myDNA;
-        public virtual void ConfigureDNA(DNA_Obj dna)
+        public void ConfigureDNA(DNA_Obj dna)
         {
             myDNA = dna;
             Init();
