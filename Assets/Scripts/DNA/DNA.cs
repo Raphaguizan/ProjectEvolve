@@ -1,12 +1,14 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
-namespace Game.DNA
+using Random = UnityEngine.Random;
+
+namespace Game.DNAStruct
 {
-    [CreateAssetMenu(menuName = "Game/DNA", fileName = "new DNA")]
-    public class DNA_Obj : ScriptableObject
+    [Serializable]
+    public class DNA 
     {
         [Tag]
         public string SpecieTag;
@@ -19,7 +21,7 @@ namespace Game.DNA
         public float LifeTime;
         public float DecayMult;
 
-        public DNA_Obj(string specie, Sprite img)
+        public DNA(string specie, Sprite img)
         {
             Init(specie, img);
         }
@@ -30,21 +32,20 @@ namespace Game.DNA
             SpecieImage = img;
 
             Gender = Random.value > .5f ? GenderTypes.MALE : GenderTypes.FEMALE;
+            MakeMutations();
+            CalculateDecay();
         }
 
-        public DNA_Obj ReproduceDNA(DNA_Obj other)
+        public DNA ReproduceDNA(DNA other)
         {
             if (!other.SpecieTag.Equals(SpecieTag)) return null;
-            DNA_Obj newDNA = LerpGenes(this, other);
-
-            newDNA.MakeMutations();
-            newDNA.CalculateDecay();
+            DNA newDNA = LerpGenes(this, other);
             return newDNA;
         }
 
-        private DNA_Obj LerpGenes(DNA_Obj dna1, DNA_Obj dna2)
+        private DNA LerpGenes(DNA dna1, DNA dna2)
         {
-            return new DNA_Obj(SpecieTag, SpecieImage);
+            return new DNA(SpecieTag, SpecieImage);
             //DNA_Obj newDNA = ScriptableObject.CreateInstance<DNA_Obj>();
             //newDNA.Init(SpecieTag, SpecieImage);
             //return newDNA;

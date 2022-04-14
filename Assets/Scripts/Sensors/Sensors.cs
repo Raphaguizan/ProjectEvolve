@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Game.DNA;
+using Game.DNAStruct;
 using Game.Util;
 
 namespace Game.Creature.Sensor
@@ -16,7 +16,7 @@ namespace Game.Creature.Sensor
 
         public List<SensorsAnswer> SensAnswers => _answers;
 
-        protected override void Init()
+        public override void Init()
         {
             InitializeSensor();
         }

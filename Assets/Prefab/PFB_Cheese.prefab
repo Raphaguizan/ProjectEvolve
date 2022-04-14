@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 512296681744289214}
   - component: {fileID: 7037323623160938997}
   - component: {fileID: 6967340230496792646}
+  - component: {fileID: 6980911287218045065}
   m_Layer: 0
   m_Name: PFB_Cheese
   m_TagString: Cheese
@@ -72,6 +73,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _feedValue: 0.3
+--- !u!50 &6980911287218045065
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512296681744289213}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 10
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 3
 --- !u!1 &4705180461280100294
 GameObject:
   m_ObjectHideFlags: 0

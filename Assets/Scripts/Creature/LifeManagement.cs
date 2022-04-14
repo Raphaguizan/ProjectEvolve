@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Game.DNA;
+using Game.DNAStruct;
 using NaughtyAttributes;
 using Game.CrowdManager;
 
@@ -41,7 +41,7 @@ namespace Game.Creature
         private bool _isPregnant = false;
 
         #region SETUP
-        protected override void Init()
+        public override void Init()
         {
             creaturePooling = GetComponentInParent<PoolingObj>();
 
@@ -99,6 +99,7 @@ namespace Game.Creature
 
         private void Eat(float value)
         {
+            if (_currentHunger >= .8f) return;
             _currentHunger += value;
             if(_currentHunger > 1f)
                 _currentHunger = 1f;
@@ -106,6 +107,7 @@ namespace Game.Creature
 
         private void Drink(float value)
         {
+            if (_currentThirst >= .8f) return;
             _currentThirst += value;
             if(_currentThirst > 1f)
                 _currentThirst = 1f;
@@ -124,10 +126,10 @@ namespace Game.Creature
             ResetDesire();
             other.ResetDesire();
             
-            DNA_Obj newLife = myDNA.ReproduceDNA(other.myDNA);
+            DNA newLife = myDNA.ReproduceDNA(other.myDNA);
             StartCoroutine(Gestation(newLife));
         }
-        IEnumerator Gestation(DNA_Obj childDNA)
+        IEnumerator Gestation(DNA childDNA)
         {
             _isPregnant = true;
             yield return new WaitForSeconds(_gestationTime);
@@ -135,17 +137,18 @@ namespace Game.Creature
             _isPregnant = false;
         }
 
-        private void Childbirth(DNA_Obj childDNA)
+        private void Childbirth(DNA childDNA)
         {
             var childAux = creaturePooling.Add(transform.position);
-            childAux.GetComponent<BornSetup>().StartNewLife(childDNA);
+            if(childAux != null)
+                childAux.GetComponent<DNAManager>().StartNewLife(childDNA);
         }
         #endregion
 
         #region DEATH
         public void Die()
         {
-            gameObject.SetActive(false);
+            creaturePooling.Remove(gameObject);
         }
 
         public float GetValue()

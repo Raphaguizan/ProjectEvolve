@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Game.DNAStruct;
 
-namespace Game.DNA
+namespace Game.Creature
 {
+
     public class DNAUser : MonoBehaviour, IDNAUser
     {
-        public DNA_Obj myDNA;
-        public void ConfigureDNA(DNA_Obj dna)
+        public DNA myDNA;
+
+        public void Configure(DNA dna)
         {
             myDNA = dna;
             Init();
         }
 
-        protected virtual void Init() { }
+        public virtual void Init()
+        {
+
+        }
     }
 }

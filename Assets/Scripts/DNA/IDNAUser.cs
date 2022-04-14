@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Game.DNA
+namespace Game.DNAStruct
 {
     public interface IDNAUser
     {
-        public void ConfigureDNA(DNA_Obj dna);
+        public void Init();
+        public void Configure(DNA dna);
     }
 }

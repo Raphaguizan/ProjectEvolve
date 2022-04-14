@@ -29,7 +29,6 @@ namespace Game.Creature
             {
                 if (other.CoupleDesire > .5f)
                 {
-                    Debug.Log("Reproduction Between "+gameObject.name+" and "+ other.gameObject.name);
                     lifeManagement.Reproduce(other);
                 }
             }

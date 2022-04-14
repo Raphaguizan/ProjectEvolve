@@ -4,11 +4,14 @@ using UnityEngine;
 using Game.Creature;
 using Game.Util.RandomValue;
 using Game.Util;
+using NaughtyAttributes;
 
 namespace Game.CrowdManager
 {
     public class PoolingObj : MonoBehaviour
     {
+        [SerializeField]
+        private int MAX;
         [SerializeField]
         private List<GameObject> objectPool;
 
@@ -18,8 +21,13 @@ namespace Game.CrowdManager
         [SerializeField]
         private RandomFloat y;
 
+        [Header("DEBUG"), SerializeField, ReadOnly]
+        private int Count = 0;
+
+
         public void Remove(GameObject obj)
         {
+            Count--;
             obj.SetActive(false);
         }
 
@@ -30,6 +38,8 @@ namespace Game.CrowdManager
 
         public GameObject Add(Vector3 pos)
         {
+            if(Count >= MAX)return null;
+            Count++;
             GameObject resp = null;
             foreach (Transform trans in transform)
             {

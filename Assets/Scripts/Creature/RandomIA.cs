@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 using Game.Util;
-using Game.DNA;
+using Game.DNAStruct;
 
 namespace Game.Creature
 {

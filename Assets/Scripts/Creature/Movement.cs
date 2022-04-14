@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using NaughtyAttributes;
 using Unity.Mathematics;
-using Game.DNA;
+using Game.DNAStruct;
 
 namespace Game.Creature
 {

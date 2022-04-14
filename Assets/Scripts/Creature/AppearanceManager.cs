@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Game.DNA;
+using Game.DNAStruct;
 using UnityEngine;
 using NaughtyAttributes;
 
@@ -11,11 +11,13 @@ namespace Game.Creature
     {
         [Header("GENES")]
         [SerializeField]
-        private Sprite sprite;
-        [SerializeField]
         private Color color;
         [SerializeField]
         private float size = 1f;
+
+        [Space, SerializeField]
+        private GameObject _tieObj;
+
         [Space, SerializeField, ReadOnly]
         private SpriteRenderer spRend;
 
@@ -24,12 +26,13 @@ namespace Game.Creature
             spRend = GetComponent<SpriteRenderer>();
         }
 
-        protected override void Init()
+        public override void Init()
         {
-            base.Init();
-            spRend.sprite = sprite;
+            spRend.sprite = myDNA.SpecieImage;
             spRend.color = color;
             transform.localScale = Vector3.one * size;
+
+            _tieObj.SetActive(myDNA.Gender == GenderTypes.FEMALE);
         }
     }
 }
