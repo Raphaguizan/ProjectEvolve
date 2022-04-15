@@ -84,31 +84,32 @@ namespace Game.Creature
         {
             if (tag.Equals(myDNA.waterTag))
             {
-                Drink(value);
-                return true;
+                return Drink(value);
             }
             else if (myDNA.IsFood(tag))
             {
-                Eat(value);
-                return true;
+                return Eat(value);
             }
             return false;
         }
 
-        private void Eat(float value)
+        private bool Eat(float value)
         {
-            if (_currentHunger >= .8f) return;
+            if (_currentHunger >= .8f) return false;
             _currentHunger += value;
             if(_currentHunger > 1f)
                 _currentHunger = 1f;
+            return true;
         }
 
-        private void Drink(float value)
+        private bool Drink(float value)
         {
-            if (_currentThirst >= .8f) return;
+            if (_currentThirst >= .8f) return false;
             _currentThirst += value;
             if(_currentThirst > 1f)
                 _currentThirst = 1f;
+
+            return true;
         }
         #endregion
 
