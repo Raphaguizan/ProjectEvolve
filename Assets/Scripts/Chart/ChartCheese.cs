@@ -7,7 +7,7 @@ public class ChartCheese : MonoBehaviour
 {
     public PoolingObj pool;
 
-    [DebugGUIGraph(group: 1, r: 1, g: 1, b: 0, min: 0, max: 50)]
+    [DebugGUIGraph(group: 1, r: 1, g: 1, b: 0, max: 50)]
     public float cheese => pool.Count;
 
     [DebugGUIPrint]

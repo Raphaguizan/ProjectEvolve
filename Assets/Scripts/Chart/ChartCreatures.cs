@@ -7,7 +7,7 @@ public class ChartCreatures : MonoBehaviour
 {
     public PoolingObj pool;
 
-    [DebugGUIGraph(group: 1, r: 1, g: 1, b: 1, min: 0, max: 100)]
+    [DebugGUIGraph(group: 1, r: 1, g: 1, b: 1, max: 50)]
     public float rats => pool.Count;
 
     [DebugGUIPrint]

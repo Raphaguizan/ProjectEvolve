@@ -189,8 +189,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   qty:
-    _min: 4
-    _max: 14
+    _min: 5
+    _max: 15
   delayTime:
     _min: 0
     _max: 0
@@ -1337,11 +1337,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2054089876}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01477007aa7909a4597226d3493d6ffe, type: 3}
+  m_Script: {fileID: 11500000, guid: 78045424af3d77a4781b096ee9309c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pool: {fileID: 2054089879}
-  ratsAverage: 0
+  predatorAverage: 0
 --- !u!114 &2054089878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1349,14 +1349,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2054089876}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa0e91c52f4cf9e4580fc7fc9c689f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   qty:
     _min: 4
-    _max: 14
+    _max: 4
   delayTime:
     _min: 0
     _max: 0

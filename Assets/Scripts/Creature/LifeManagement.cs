@@ -37,6 +37,7 @@ namespace Game.Creature
         private float _currentDecay = 0;
         [SerializeField, ReadOnly]
         private bool _isPregnant = false;
+        private float _currentGestation;
 
         #region SETUP
         public override void Init()
@@ -45,6 +46,7 @@ namespace Game.Creature
 
             _currentHunger = 1f;
             _currentThirst = 1f;
+            _coupleDesire = 0f;
             _currentDecay = myDNA.DecayMult;
 
             _isPregnant = false;
@@ -134,7 +136,13 @@ namespace Game.Creature
         IEnumerator Gestation(DNA childDNA)
         {
             _isPregnant = true;
-            yield return new WaitForSeconds(_gestationTime);
+            _currentGestation = _gestationTime;
+
+            while(_currentGestation > 0)
+            {
+                yield return null;
+                _currentGestation -= Time.deltaTime;
+            }
             Childbirth(childDNA);
             _isPregnant = false;
         }

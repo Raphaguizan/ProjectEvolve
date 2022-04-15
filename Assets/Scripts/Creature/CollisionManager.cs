@@ -27,7 +27,7 @@ namespace Game.Creature
             var other = collision.gameObject.GetComponent<LifeManagement>();
             if (other != null)
             {
-                if (other.CoupleDesire > .5f)
+                if (other.CoupleDesire > .5f && other.CompareTag(gameObject.tag))
                 {
                     lifeManagement.Reproduce(other);
                 }

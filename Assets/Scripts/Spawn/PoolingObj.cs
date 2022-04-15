@@ -31,6 +31,7 @@ namespace Game.CrowdManager
             obj.SetActive(false);
         }
 
+        [Button]
         public void Add()
         {
             GameObject newObj = Add(RandomizePos());

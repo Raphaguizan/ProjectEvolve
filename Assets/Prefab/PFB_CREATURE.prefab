@@ -186,10 +186,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6340393282024628905}
+  - component: {fileID: 6340393282024628906}
   - component: {fileID: 8781579795981736393}
   - component: {fileID: 3498724805158967656}
   - component: {fileID: 6340393282024628911}
-  - component: {fileID: 6340393282024628906}
   - component: {fileID: 6340393282024628910}
   - component: {fileID: 6340393282024628904}
   - component: {fileID: 5208227063921395824}
@@ -215,6 +215,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6340393282024628906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6340393282024628909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ba6ecd3d60ee7c408fc7da1907c8eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myDNA:
+    SpecieTag: 
+    SpecieImage: {fileID: 0}
+    Gender: 0
+    foodTags: []
+    waterTag: 
+    LifeTime: 0
+    DecayMult: 0
+  creaturePooling: {fileID: 0}
+  _coupleDesireSpeed: 0.02
+  _gestationTime: 6
+  _valueAsFood: 0.4
+  _currentHunger: 1
+  _currentThirst: 1
+  _coupleDesire: 0
+  _isPregnant: 0
 --- !u!114 &8781579795981736393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,7 +283,7 @@ MonoBehaviour:
     - Cheese
     waterTag: Water
     LifeTime: 0
-    DecayMult: 0
+    DecayMult: 0.02
 --- !u!50 &6340393282024628911
 Rigidbody2D:
   serializedVersion: 4
@@ -277,34 +305,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6340393282024628906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6340393282024628909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ba6ecd3d60ee7c408fc7da1907c8eaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myDNA:
-    SpecieTag: 
-    SpecieImage: {fileID: 0}
-    Gender: 0
-    foodTags: []
-    waterTag: 
-    LifeTime: 0
-    DecayMult: 0
-  creaturePooling: {fileID: 0}
-  _coupleDesireSpeed: 0.02
-  _gestationTime: 6
-  _valueAsFood: 0.2
-  _currentHunger: 1
-  _currentThirst: 1
-  _coupleDesire: 0
-  _isPregnant: 0
 --- !u!114 &6340393282024628910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,6 +352,7 @@ MonoBehaviour:
   randomTime: {x: 1, y: 6}
   wallTag: Wall
   _currentDirection: {x: 0, y: 0}
+  _following: 
   sensor: {fileID: 6340393282497950357}
   lifeManagement: {fileID: 6340393282024628906}
 --- !u!114 &5208227063921395824
@@ -424,8 +425,9 @@ MonoBehaviour:
     closiestFoodDirection: {x: 0, y: 0}
     _waterDistance: 0
     closiestWaterDirection: {x: 0, y: 0}
-    _opositeSexDistance: 0
-    closiestOpositeSexDirection: {x: 0, y: 0}
+    _coupleDistance: 0
+    closiestCoupleDirection: {x: 0, y: 0}
+    closiestCoupleDesire: 0
     _closiestObjDistance: 0
     nearObjTag: 
     closiestObjDirection: {x: 0, y: 0}

@@ -7,7 +7,7 @@ public class ChartPredator : MonoBehaviour
 {
     public PoolingObj pool;
 
-    [DebugGUIGraph(group: 1, r: 1, g: 0, b: 0, min: 0, max: 100)]
+    [DebugGUIGraph(group: 1, r: 1, g: 0, b: 0, max: 50)]
     public float predator => pool.Count;
 
     [DebugGUIPrint]
