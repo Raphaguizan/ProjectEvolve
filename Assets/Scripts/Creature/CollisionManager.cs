@@ -16,7 +16,7 @@ namespace Game.Creature
         private void OnCollisionEnter2D(Collision2D collision)
         {
             var food = collision.gameObject.GetComponent<IConsumable>();
-            if (food != null )
+            if (food != null && !(food is Water))
             {
                 if (lifeManagement.Consume(collision.transform.tag, food.GetValue()))
                 {
@@ -31,6 +31,15 @@ namespace Game.Creature
                 {
                     lifeManagement.Reproduce(other);
                 }
+            }
+        }
+
+        private void OnCollisionStay2D(Collision2D collision)
+        {
+            var food = collision.gameObject.GetComponent<IConsumable>();
+            if (food != null && food is Water)
+            {
+                lifeManagement.Consume(collision.transform.tag, food.GetValue());
             }
         }
     }
