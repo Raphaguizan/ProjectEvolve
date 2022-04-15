@@ -21,8 +21,8 @@ namespace Game.CrowdManager
         [SerializeField]
         private RandomFloat y;
 
-        [Header("DEBUG"), SerializeField, ReadOnly]
-        private int Count = 0;
+        [Header("DEBUG"), ReadOnly]
+        public float Count = 0;
 
 
         public void Remove(GameObject obj)

@@ -16,7 +16,8 @@ public class Cheese : MonoBehaviour, IConsumable
 
     public void Die()
     {
-        _pool.Remove(gameObject);
+        if(gameObject.activeInHierarchy)
+            _pool.Remove(gameObject);
     }
 
     public float GetValue()

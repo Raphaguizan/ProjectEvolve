@@ -8,6 +8,7 @@ TagManager:
   - Cheese
   - Rat
   - Water
+  - predator
   layers:
   - Default
   - TransparentFX

@@ -46,6 +46,8 @@ namespace Game.Creature
             _currentHunger = 1f;
             _currentThirst = 1f;
             _currentDecay = myDNA.DecayMult;
+
+            _isPregnant = false;
         }
         private void OnDisable()
         {
