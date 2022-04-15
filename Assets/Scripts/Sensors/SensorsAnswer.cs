@@ -10,27 +10,31 @@ namespace Game.Creature.Sensor
     public class SensorsAnswer
     {
         public int id;
-        [Tag]
-        public string tag;
-        public float distance;
+     
+        public GameObject obj;
+        public Vector2 direction;
+
+        [HideInInspector]
+        public Action update;
 
         public SensorsAnswer(int i)
         {
             id = i;
-            tag = null;
-            distance = -1;
+            obj = null;
+            direction = Vector2.zero;
         }
 
         public void ResetAnswer()
         {
-            tag = null;
-            distance = -1;
+            obj = null;
+            direction = Vector2.zero;
         }
 
-        public void UpdateSensor(string t, float d)
+        public void UpdateSensor(GameObject g, Vector2 d)
         {
-            tag = t;
-            distance = d;
+            obj = g;
+            direction = d;
+            update?.Invoke();
         }
     }
 }

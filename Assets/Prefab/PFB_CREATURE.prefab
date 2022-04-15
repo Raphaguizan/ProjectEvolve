@@ -138,7 +138,8 @@ MonoBehaviour:
     SpecieTag: 
     SpecieImage: {fileID: 0}
     Gender: 0
-    _foodTags: []
+    foodTags: []
+    waterTag: 
     LifeTime: 0
     DecayMult: 0
   color: {r: 1, g: 1, b: 1, a: 1}
@@ -230,7 +231,8 @@ MonoBehaviour:
     SpecieTag: 
     SpecieImage: {fileID: 0}
     Gender: 0
-    _foodTags: []
+    foodTags: []
+    waterTag: 
     LifeTime: 0
     DecayMult: 0
 --- !u!114 &3498724805158967656
@@ -249,8 +251,9 @@ MonoBehaviour:
     SpecieTag: Rat
     SpecieImage: {fileID: 21300000, guid: 003444eac1d00f346a27bc6a852b494f, type: 3}
     Gender: 0
-    _foodTags:
+    foodTags:
     - Cheese
+    waterTag: Water
     LifeTime: 0
     DecayMult: 0
 --- !u!50 &6340393282024628911
@@ -290,16 +293,14 @@ MonoBehaviour:
     SpecieTag: 
     SpecieImage: {fileID: 0}
     Gender: 0
-    _foodTags: []
+    foodTags: []
+    waterTag: 
     LifeTime: 0
     DecayMult: 0
   creaturePooling: {fileID: 0}
   _coupleDesireSpeed: 0.02
   _gestationTime: 6
   _valueAsFood: 0.2
-  _foodTags:
-  - Cheese
-  _waterTag: Water
   _currentHunger: 1
   _currentThirst: 1
   _coupleDesire: 0
@@ -320,7 +321,8 @@ MonoBehaviour:
     SpecieTag: 
     SpecieImage: {fileID: 0}
     Gender: 0
-    _foodTags: []
+    foodTags: []
+    waterTag: 
     LifeTime: 0
     DecayMult: 0
   speed: 50
@@ -343,7 +345,8 @@ MonoBehaviour:
     SpecieTag: 
     SpecieImage: {fileID: 0}
     Gender: 0
-    _foodTags: []
+    foodTags: []
+    waterTag: 
     LifeTime: 0
     DecayMult: 0
   randomTime: {x: 1, y: 6}
@@ -371,6 +374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6340393282497950356}
   - component: {fileID: 6340393282497950357}
+  - component: {fileID: 2421394980824021833}
   m_Layer: 0
   m_Name: Sensors
   m_TagString: Untagged
@@ -408,18 +412,49 @@ MonoBehaviour:
     SpecieTag: 
     SpecieImage: {fileID: 0}
     Gender: 0
-    _foodTags: []
+    foodTags: []
+    waterTag: 
     LifeTime: 0
     DecayMult: 0
   distance: 2
   sensorNum: 3
   _answers:
   - id: 0
-    tag: 
-    distance: -1
+    obj: {fileID: 0}
+    direction: {x: 0, y: 0}
   - id: 1
-    tag: 
-    distance: -1
+    obj: {fileID: 0}
+    direction: {x: 0, y: 0}
+--- !u!114 &2421394980824021833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6340393282497950363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd7332c6a55b9b42b6a6208006386ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myDNA:
+    SpecieTag: 
+    SpecieImage: {fileID: 0}
+    Gender: 0
+    foodTags: []
+    waterTag: 
+    LifeTime: 0
+    DecayMult: 0
+  _sensor: {fileID: 6340393282497950357}
+  output:
+    nearFood: {fileID: 0}
+    foodDirection: {x: 0, y: 0}
+    nearWater: {fileID: 0}
+    waterDirection: {x: 0, y: 0}
+    nearOpositeSex: {fileID: 0}
+    opositeSexDirection: {x: 0, y: 0}
+    near: {fileID: 0}
+    closiestDirection: {x: 0, y: 0}
 --- !u!1 &8241719960030855978
 GameObject:
   m_ObjectHideFlags: 0

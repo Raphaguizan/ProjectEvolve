@@ -18,7 +18,7 @@ namespace Game.Creature
         public void StartNewLife()
         {
             //Get Best DNA
-            myDNA = new DNA(BestDNA.SpecieTag, BestDNA.SpecieImage);
+            myDNA = new DNA(BestDNA.SpecieTag, BestDNA.SpecieImage, BestDNA.foodTags, BestDNA.waterTag);
             ConfigureLife();
         }
         public void StartNewLife(DNA dna)

@@ -51,7 +51,7 @@ namespace Game.Creature.Sensor
         {
             var hit = Physics2D.Raycast(transform.position, dir, distance);
             if (hit)
-                _answers[id].UpdateSensor(hit.collider.tag, hit.distance);
+                _answers[id].UpdateSensor(hit.collider.gameObject, hit.point - (Vector2)transform.position);
             else
                 _answers[id].ResetAnswer();
 

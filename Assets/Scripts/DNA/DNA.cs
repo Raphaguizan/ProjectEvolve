@@ -16,21 +16,25 @@ namespace Game.DNAStruct
         public GenderTypes Gender;
 
         [Tag]
-        public List<string> _foodTags = new List<string>();
+        public List<string> foodTags = new List<string>();
+        [Tag]
+        public string waterTag;
 
         public float LifeTime;
         public float DecayMult;
 
-        public DNA(string specie, Sprite img)
+        public DNA(string specie, Sprite img, List<string> foods, string water)
         {
-            Init(specie, img);
-        }
-
-        public void Init(string specie, Sprite img)
-        {
+            foodTags = foods;
+            waterTag = water;
             SpecieTag = specie;
             SpecieImage = img;
 
+            Init();
+        }
+
+        public void Init()
+        {
             Gender = Random.value > .5f ? GenderTypes.MALE : GenderTypes.FEMALE;
             MakeMutations();
             CalculateDecay();
@@ -45,7 +49,7 @@ namespace Game.DNAStruct
 
         private DNA LerpGenes(DNA dna1, DNA dna2)
         {
-            return new DNA(SpecieTag, SpecieImage);
+            return new DNA(SpecieTag, SpecieImage, foodTags, waterTag);
             //DNA_Obj newDNA = ScriptableObject.CreateInstance<DNA_Obj>();
             //newDNA.Init(SpecieTag, SpecieImage);
             //return newDNA;
@@ -59,6 +63,11 @@ namespace Game.DNAStruct
         private void CalculateDecay()
         {
             DecayMult = .02f;
+        }
+
+        public bool IsFood(string tag)
+        {
+            return foodTags.Contains(tag);
         }
     }
 }

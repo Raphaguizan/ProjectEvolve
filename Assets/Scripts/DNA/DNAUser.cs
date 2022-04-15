@@ -13,6 +13,7 @@ namespace Game.Creature
         public void Configure(DNA dna)
         {
             myDNA = dna;
+            gameObject.tag = myDNA.SpecieTag;
             Init();
         }
 

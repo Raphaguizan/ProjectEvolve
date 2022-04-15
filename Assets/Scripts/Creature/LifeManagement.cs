@@ -18,11 +18,6 @@ namespace Game.Creature
         private float _gestationTime = 4f;
         [SerializeField]
         private float _valueAsFood = .2f;
-        [SerializeField, Tag]
-        private List<string> _foodTags = new List<string>();
-
-        [Space, SerializeField, Tag]
-        private string _waterTag = "Water";
 
         [Header("STATS")]
         [SerializeField, ProgressBar("Hunger", 1f, EColor.Red)]
@@ -84,12 +79,12 @@ namespace Game.Creature
         #region COMSUME
         public bool Consume(string tag, float value)
         {
-            if (tag.Equals(_waterTag))
+            if (tag.Equals(myDNA.waterTag))
             {
                 Drink(value);
                 return true;
             }
-            else if (_foodTags.Contains(tag))
+            else if (myDNA.IsFood(tag))
             {
                 Eat(value);
                 return true;
