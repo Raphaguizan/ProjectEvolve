@@ -352,6 +352,8 @@ MonoBehaviour:
   randomTime: {x: 1, y: 6}
   wallTag: Wall
   _currentDirection: {x: 0, y: 0}
+  sensor: {fileID: 6340393282497950357}
+  lifeManagement: {fileID: 6340393282024628906}
 --- !u!114 &5208227063921395824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,7 +376,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6340393282497950356}
   - component: {fileID: 6340393282497950357}
-  - component: {fileID: 2421394980824021833}
   m_Layer: 0
   m_Name: Sensors
   m_TagString: Untagged
@@ -418,43 +419,16 @@ MonoBehaviour:
     DecayMult: 0
   distance: 2
   sensorNum: 3
-  _answers:
-  - id: 0
-    obj: {fileID: 0}
-    direction: {x: 0, y: 0}
-  - id: 1
-    obj: {fileID: 0}
-    direction: {x: 0, y: 0}
---- !u!114 &2421394980824021833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6340393282497950363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccd7332c6a55b9b42b6a6208006386ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myDNA:
-    SpecieTag: 
-    SpecieImage: {fileID: 0}
-    Gender: 0
-    foodTags: []
-    waterTag: 
-    LifeTime: 0
-    DecayMult: 0
-  _sensor: {fileID: 6340393282497950357}
   output:
-    nearFood: {fileID: 0}
-    foodDirection: {x: 0, y: 0}
-    nearWater: {fileID: 0}
-    waterDirection: {x: 0, y: 0}
-    nearOpositeSex: {fileID: 0}
-    opositeSexDirection: {x: 0, y: 0}
-    near: {fileID: 0}
-    closiestDirection: {x: 0, y: 0}
+    _foodDistance: 0
+    closiestFoodDirection: {x: 0, y: 0}
+    _waterDistance: 0
+    closiestWaterDirection: {x: 0, y: 0}
+    _opositeSexDistance: 0
+    closiestOpositeSexDirection: {x: 0, y: 0}
+    _closiestObjDistance: 0
+    nearObjTag: 
+    closiestObjDirection: {x: 0, y: 0}
 --- !u!1 &8241719960030855978
 GameObject:
   m_ObjectHideFlags: 0

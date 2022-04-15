@@ -30,6 +30,9 @@ namespace Game.Creature
 
         // properties
         public float CoupleDesire => _coupleDesire;
+        public float Thirst => _currentThirst;
+        public float Hunger => _currentHunger;
+        public bool CoupleHasDesire => _coupleDesire > .5f;
         // private
         private float _currentDecay = 0;
         [SerializeField, ReadOnly]
@@ -116,6 +119,7 @@ namespace Game.Creature
         }
         public void Reproduce(LifeManagement other)
         {
+            if (_isPregnant) return;
             if (myDNA.Gender != GenderTypes.FEMALE || myDNA.Gender == other.myDNA.Gender) return;
 
             ResetDesire();
