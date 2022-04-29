@@ -187,7 +187,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6340393282024628905}
   - component: {fileID: 6340393282024628906}
-  - component: {fileID: 8781579795981736393}
   - component: {fileID: 3498724805158967656}
   - component: {fileID: 6340393282024628911}
   - component: {fileID: 6340393282024628910}
@@ -243,26 +242,6 @@ MonoBehaviour:
   _currentThirst: 1
   _coupleDesire: 0
   _isPregnant: 0
---- !u!114 &8781579795981736393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6340393282024628909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2505a9d423f583543866caa042ad72b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myDNA:
-    SpecieTag: 
-    SpecieImage: {fileID: 0}
-    Gender: 0
-    foodTags: []
-    waterTag: 
-    LifeTime: 0
-    DecayMult: 0
 --- !u!114 &3498724805158967656
 MonoBehaviour:
   m_ObjectHideFlags: 0

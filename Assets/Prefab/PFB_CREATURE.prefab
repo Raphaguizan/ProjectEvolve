@@ -137,11 +137,11 @@ MonoBehaviour:
   myDNA:
     SpecieTag: 
     SpecieImage: {fileID: 0}
-    Gender: 0
+    gender: 0
     foodTags: []
     waterTag: 
-    LifeTime: 0
-    DecayMult: 0
+    lifeTime: 0
+    decayMult: 0
   color: {r: 1, g: 1, b: 1, a: 1}
   size: 1
   _tieObj: {fileID: 8241719960030855978}
@@ -187,7 +187,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6340393282024628905}
   - component: {fileID: 6340393282024628906}
-  - component: {fileID: 8781579795981736393}
   - component: {fileID: 3498724805158967656}
   - component: {fileID: 6340393282024628911}
   - component: {fileID: 6340393282024628910}
@@ -230,11 +229,11 @@ MonoBehaviour:
   myDNA:
     SpecieTag: 
     SpecieImage: {fileID: 0}
-    Gender: 0
+    gender: 0
     foodTags: []
     waterTag: 
-    LifeTime: 0
-    DecayMult: 0
+    lifeTime: 0
+    decayMult: 0
   creaturePooling: {fileID: 0}
   _coupleDesireSpeed: 0.02
   _gestationTime: 6
@@ -243,26 +242,6 @@ MonoBehaviour:
   _currentThirst: 1
   _coupleDesire: 0
   _isPregnant: 0
---- !u!114 &8781579795981736393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6340393282024628909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2505a9d423f583543866caa042ad72b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myDNA:
-    SpecieTag: 
-    SpecieImage: {fileID: 0}
-    Gender: 0
-    foodTags: []
-    waterTag: 
-    LifeTime: 0
-    DecayMult: 0
 --- !u!114 &3498724805158967656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,15 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b4d80799553b6645b8aa13c295eef5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BestDNA:
-    SpecieTag: Rat
-    SpecieImage: {fileID: 21300000, guid: 003444eac1d00f346a27bc6a852b494f, type: 3}
-    Gender: 0
-    foodTags:
-    - Cheese
-    waterTag: Water
-    LifeTime: 0
-    DecayMult: 0.02
+  BestDNA: {fileID: 11400000, guid: f2b07e51f5c17cc418a3bce23b755ea5, type: 2}
 --- !u!50 &6340393282024628911
 Rigidbody2D:
   serializedVersion: 4
@@ -320,11 +291,11 @@ MonoBehaviour:
   myDNA:
     SpecieTag: 
     SpecieImage: {fileID: 0}
-    Gender: 0
+    gender: 0
     foodTags: []
     waterTag: 
-    LifeTime: 0
-    DecayMult: 0
+    lifeTime: 0
+    decayMult: 0
   speed: 50
   graphic: {fileID: 6340393281950667746}
   rotationTime: 0.5
@@ -344,11 +315,11 @@ MonoBehaviour:
   myDNA:
     SpecieTag: 
     SpecieImage: {fileID: 0}
-    Gender: 0
+    gender: 0
     foodTags: []
     waterTag: 
-    LifeTime: 0
-    DecayMult: 0
+    lifeTime: 0
+    decayMult: 0
   randomTime: {x: 1, y: 6}
   wallTag: Wall
   _currentDirection: {x: 0, y: 0}
@@ -413,11 +384,11 @@ MonoBehaviour:
   myDNA:
     SpecieTag: 
     SpecieImage: {fileID: 0}
-    Gender: 0
+    gender: 0
     foodTags: []
     waterTag: 
-    LifeTime: 0
-    DecayMult: 0
+    lifeTime: 0
+    decayMult: 0
   distance: 2
   sensorNum: 3
   output:

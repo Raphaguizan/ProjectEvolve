@@ -32,7 +32,7 @@ namespace Game.Creature
             spRend.color = color;
             transform.localScale = Vector3.one * size;
 
-            _tieObj.SetActive(myDNA.Gender == GenderTypes.FEMALE);
+            _tieObj.SetActive(myDNA.gender == GenderTypes.FEMALE);
         }
     }
 }

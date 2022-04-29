@@ -8,9 +8,7 @@ namespace Game.Creature
 {
     public class DNAManager : MonoBehaviour
     {
-
-        [Space]
-        public DNA BestDNA;
+        public BestDNA BestDNA;
 
 
         private DNA myDNA;
@@ -18,7 +16,7 @@ namespace Game.Creature
         public void StartNewLife()
         {
             //Get Best DNA
-            myDNA = new DNA(BestDNA.SpecieTag, BestDNA.SpecieImage, BestDNA.foodTags, BestDNA.waterTag, BestDNA.DecayMult);
+            myDNA = new DNA(BestDNA.GetBestDNA());
             ConfigureLife();
         }
         public void StartNewLife(DNA dna)
@@ -35,12 +33,17 @@ namespace Game.Creature
         [Button]
         private void ConfigureLife()
         {
-            gameObject.name = myDNA.Gender+" "+ myDNA.SpecieTag+" "+gameObject.GetInstanceID();
+            gameObject.name = myDNA.gender+" "+ myDNA.SpecieTag+" "+gameObject.GetInstanceID();
             var obj = gameObject.GetComponentsInChildren<IDNAUser>();
             foreach (var item in obj)
             {
                  item.Configure(myDNA);
             }
+        }
+
+        public void SaveDNA(DNA dna)
+        {
+            BestDNA.SaveBestDNA(myDNA);
         }
     }
 }

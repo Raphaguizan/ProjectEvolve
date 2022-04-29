@@ -61,7 +61,7 @@ namespace Game.Creature.Sensor
             if (hit.CompareTag(myDNA.SpecieTag))
             {
                 var other = hit.GetComponentInParent<LifeManagement>();
-                if (other.myDNA.Gender != myDNA.Gender)
+                if (other.myDNA.gender != myDNA.gender)
                 {
                     _outputAux.ChangeCouple(pos, other.CoupleHasDesire);
                 }

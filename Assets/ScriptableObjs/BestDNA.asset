@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ac3a8f9b7b0734da3ac658dce83eea, type: 3}
+  m_Name: BestDNA
+  m_EditorClassIdentifier: 
+  best:
+    SpecieTag: Rat
+    SpecieImage: {fileID: 21300000, guid: 003444eac1d00f346a27bc6a852b494f, type: 3}
+    gender: 1
+    foodTags:
+    - Cheese
+    waterTag: Water
+    lifeTime: 0
+    decayMult: 0.05

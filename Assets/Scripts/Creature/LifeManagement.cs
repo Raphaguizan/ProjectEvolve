@@ -38,16 +38,18 @@ namespace Game.Creature
         [SerializeField, ReadOnly]
         private bool _isPregnant = false;
         private float _currentGestation;
+        private DNAManager dnaManager;
 
         #region SETUP
         public override void Init()
         {
             creaturePooling = GetComponentInParent<PoolingObj>();
+            dnaManager = GetComponent<DNAManager>();
 
             _currentHunger = 1f;
             _currentThirst = 1f;
             _coupleDesire = 0f;
-            _currentDecay = myDNA.DecayMult;
+            _currentDecay = myDNA.decayMult;
 
             _isPregnant = false;
         }
@@ -125,7 +127,7 @@ namespace Game.Creature
         public void Reproduce(LifeManagement other)
         {
             if (_isPregnant) return;
-            if (myDNA.Gender != GenderTypes.FEMALE || myDNA.Gender == other.myDNA.Gender) return;
+            if (myDNA.gender != GenderTypes.FEMALE || myDNA.gender == other.myDNA.gender) return;
 
             ResetDesire();
             other.ResetDesire();
@@ -158,6 +160,7 @@ namespace Game.Creature
         #region DEATH
         public void Die()
         {
+            if(dnaManager)dnaManager.SaveDNA(myDNA);
             creaturePooling.Remove(gameObject);
         }
 
