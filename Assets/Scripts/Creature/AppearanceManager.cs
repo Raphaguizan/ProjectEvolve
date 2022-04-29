@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Game.DNAStruct;
+using Game.DNAs;
 using UnityEngine;
 using NaughtyAttributes;
 

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Game.DNAStruct;
+using Game.DNAs;
 using NaughtyAttributes;
 
 namespace Game.Creature

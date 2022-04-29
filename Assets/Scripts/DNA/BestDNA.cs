@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
-namespace Game.DNAStruct
+namespace Game.DNAs
 {
     [CreateAssetMenu(menuName ="Game/BestDNA", fileName ="BestDNA")]
     public class BestDNA : ScriptableObject

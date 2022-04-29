@@ -2,10 +2,11 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
+using Game.DNAs.Genes;
 
 using Random = UnityEngine.Random;
 
-namespace Game.DNAStruct
+namespace Game.DNAs
 {
     [Serializable]
     public class DNA 
@@ -20,17 +21,21 @@ namespace Game.DNAStruct
         [Tag]
         public string waterTag;
 
+        public List<Gene> genes;
+
         public float lifeTime;
         public float decayMult;
 
         private int initialTimeFrame;
 
-        public DNA(string specie, Sprite img, List<string> foods, string water, float decay)
+        public DNA(string specie, Sprite img, List<string> foods, string water, List<Gene> gen, float decay)
         {
             foodTags = foods;
             waterTag = water;
             SpecieTag = specie;
             SpecieImage = img;
+            
+            genes = gen;
 
             decayMult = decay;
 
@@ -42,6 +47,9 @@ namespace Game.DNAStruct
             waterTag = copy.waterTag;
             SpecieTag = copy.SpecieTag;
             SpecieImage = copy.SpecieImage;
+
+            genes = copy.genes;
+
             lifeTime = copy.lifeTime;
             decayMult = copy.decayMult;
             Init();
@@ -69,7 +77,7 @@ namespace Game.DNAStruct
 
         private DNA LerpGenes(DNA dna1, DNA dna2)
         {
-            return new DNA(SpecieTag, SpecieImage, foodTags, waterTag, decayMult);
+            return new DNA(this);
             //DNA_Obj newDNA = ScriptableObject.CreateInstance<DNA_Obj>();
             //newDNA.Init(SpecieTag, SpecieImage);
             //return newDNA;
