@@ -77,25 +77,53 @@ namespace Game.DNAs
 
         private DNA LerpGenes(DNA dna1, DNA dna2)
         {
-            return new DNA(this);
+            DNA newDNA = new DNA(dna1);
+            foreach(Gene gen in newDNA.genes)
+            {
+                gen.Reproduce(dna2.GetGeneOfType(gen.type));
+            }
             //DNA_Obj newDNA = ScriptableObject.CreateInstance<DNA_Obj>();
             //newDNA.Init(SpecieTag, SpecieImage);
-            //return newDNA;
+            return newDNA;
         }
 
         private void MakeMutations()
         {
-            
+            foreach (Gene gen in genes)
+            {
+                gen.Mutate();
+            }
         }
 
         private void CalculateDecay()
         {
-            
+            foreach (Gene gen in genes)
+            {
+                decayMult *= gen.Decay();
+            }
         }
 
         public bool IsFood(string tag)
         {
             return foodTags.Contains(tag);
+        }
+
+        public Gene GetGeneOfType(GeneType gen)
+        {
+            return genes.Find(g => g.type.Equals(gen));
+        }
+        public void SaveGene(Gene newGene)
+        {
+            Gene geneAux = genes.Find(g => g.type.Equals(newGene.type));
+            if (geneAux != null)
+            {
+                int auxIndex = genes.FindIndex(g => g.Equals(geneAux));
+                genes[auxIndex] = newGene;
+            }
+            else
+            {
+                genes.Add(newGene);
+            }
         }
     }
 }

@@ -140,6 +140,7 @@ MonoBehaviour:
     gender: 0
     foodTags: []
     waterTag: 
+    genes: []
     lifeTime: 0
     decayMult: 0
   color: {r: 1, g: 1, b: 1, a: 1}
@@ -186,6 +187,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6340393282024628905}
+  - component: {fileID: 5813674307522877377}
   - component: {fileID: 6340393282024628906}
   - component: {fileID: 3498724805158967656}
   - component: {fileID: 6340393282024628911}
@@ -214,6 +216,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5813674307522877377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6340393282024628909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98907042cabea33418d2b17145d16e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desire: 0.05
+  gestationTime: 5
+  valueAsFood: 0.2
+  speed: 50
+  size: 1
+  sensorDist: 2
+  sensorNum: 3
+  IARandomTime: {x: 1, y: 6}
+  color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &6340393282024628906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,12 +255,13 @@ MonoBehaviour:
     gender: 0
     foodTags: []
     waterTag: 
+    genes: []
     lifeTime: 0
     decayMult: 0
   creaturePooling: {fileID: 0}
-  _coupleDesireSpeed: 0.02
-  _gestationTime: 6
-  _valueAsFood: 0.4
+  _coupleDesireSpeed: 0.05
+  _gestationTime: 4
+  _valueAsFood: 0.2
   _currentHunger: 1
   _currentThirst: 1
   _coupleDesire: 0
@@ -255,6 +279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BestDNA: {fileID: 11400000, guid: f2b07e51f5c17cc418a3bce23b755ea5, type: 2}
+  geneManager: {fileID: 5813674307522877377}
 --- !u!50 &6340393282024628911
 Rigidbody2D:
   serializedVersion: 4
@@ -294,6 +319,7 @@ MonoBehaviour:
     gender: 0
     foodTags: []
     waterTag: 
+    genes: []
     lifeTime: 0
     decayMult: 0
   speed: 50
@@ -318,6 +344,7 @@ MonoBehaviour:
     gender: 0
     foodTags: []
     waterTag: 
+    genes: []
     lifeTime: 0
     decayMult: 0
   randomTime: {x: 1, y: 6}
@@ -387,6 +414,7 @@ MonoBehaviour:
     gender: 0
     foodTags: []
     waterTag: 
+    genes: []
     lifeTime: 0
     decayMult: 0
   distance: 2

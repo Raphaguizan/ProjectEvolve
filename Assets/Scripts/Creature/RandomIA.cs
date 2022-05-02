@@ -11,9 +11,6 @@ namespace Game.Creature
     [RequireComponent(typeof(Movement))]
     public class RandomIA : DNAUser
     {
-        [Header("GENES"),SerializeField]
-        private Vector2 randomTime = Vector2.zero;
-
         [Header("SETUP"), SerializeField, Tag]
         private string wallTag = "Wall";
 
@@ -30,6 +27,15 @@ namespace Game.Creature
         private Movement mov;
         private bool chasing = false;
 
+        // GENES
+        [SerializeField]
+        private Vector2 randomTime;
+
+
+        public override void Init()
+        {
+            randomTime = myGenes.IARandomTime;
+        }
         private void Start()
         {
             mov = GetComponent<Movement>(); 

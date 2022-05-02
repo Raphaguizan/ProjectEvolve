@@ -11,10 +11,6 @@ namespace Game.Creature
     [RequireComponent(typeof(Rigidbody2D))]
     public class Movement : DNAUser
     {
-        [Header("GENES")]
-        [SerializeField]
-        private float speed = 50f;
-
         [Header("SETUP")]
         [SerializeField]
         private Transform graphic;
@@ -28,6 +24,15 @@ namespace Game.Creature
         private Rigidbody2D myRB;
         private Tween currentTween;
         private Vector3 lookAtPos;
+
+        //GENES
+        [SerializeField]
+        private float speed = 50f;
+
+        public override void Init()
+        {
+            speed = myGenes.speed;
+        }
 
         private void Start()
         {

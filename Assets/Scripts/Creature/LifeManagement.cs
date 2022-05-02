@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.DNAs;
+using Game.DNAs.Genes;
 using NaughtyAttributes;
 using Game.CrowdManager;
 
@@ -12,12 +13,7 @@ namespace Game.Creature
         [Header("Setup")]
         [SerializeField]
         private PoolingObj creaturePooling;
-        [Header("GENES"), SerializeField]
-        private float _coupleDesireSpeed = .05f;
-        [SerializeField]
-        private float _gestationTime = 4f;
-        [SerializeField]
-        private float _valueAsFood = .2f;
+        
 
         [Header("STATS")]
         [SerializeField, ProgressBar("Hunger", 1f, EColor.Red)]
@@ -40,6 +36,14 @@ namespace Game.Creature
         private float _currentGestation;
         private DNAManager dnaManager;
 
+        // GENES
+        [SerializeField]
+        private float _coupleDesireSpeed;
+        [SerializeField]
+        private float _gestationTime;
+        [SerializeField]
+        private float _valueAsFood;
+
         #region SETUP
         public override void Init()
         {
@@ -51,8 +55,15 @@ namespace Game.Creature
             _coupleDesire = 0f;
             _currentDecay = myDNA.decayMult;
 
+            _coupleDesireSpeed = myGenes.desire;
+            _gestationTime = myGenes.gestationTime;
+            _valueAsFood = myGenes.valueAsFood;
+
             _isPregnant = false;
+
         }
+
+
         private void OnDisable()
         {
             StopAllCoroutines();

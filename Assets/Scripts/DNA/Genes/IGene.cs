@@ -6,9 +6,9 @@ namespace Game.DNAs.Genes
 {
     public interface IGene
     {
-        public object GetValue();
+        public T GetValue<T>();
         public void Mutate();
-        public void Reproduce(Gene other);
+        public void Reproduce(IGene other);
         public float Decay();
     }
 }

@@ -19,5 +19,6 @@ MonoBehaviour:
     foodTags:
     - Cheese
     waterTag: Water
+    genes: []
     lifeTime: 0
-    decayMult: 0.05
+    decayMult: 0.035

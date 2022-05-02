@@ -8,19 +8,23 @@ namespace Game.Creature.Sensor
 {
     public class Sensors : DNAUser
     {
-        [Header("GENES")]
-        public float distance = 1f;
-        public int sensorNum = 1;
-
         private SensorOutput _outputAux;
         
         public SensorOutput output;
-
+        // GENES
+        public float distance = 1f;
+        public int sensorNum = 1;
         private void Awake()
         {
             output = new SensorOutput();
             _outputAux = new SensorOutput();
             output.ResetOutput();
+        }
+
+        public override void Init()
+        {
+            distance = myGenes.sensorDist;
+            sensorNum = myGenes.sensorNum;
         }
 
         private void Update()

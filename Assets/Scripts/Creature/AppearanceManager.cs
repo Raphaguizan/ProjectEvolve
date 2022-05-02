@@ -9,17 +9,17 @@ namespace Game.Creature
     [RequireComponent(typeof(SpriteRenderer))]
     public class AppearanceManager : DNAUser
     {
-        [Header("GENES")]
-        [SerializeField]
-        private Color color;
-        [SerializeField]
-        private float size = 1f;
-
         [Space, SerializeField]
         private GameObject _tieObj;
 
         [Space, SerializeField, ReadOnly]
         private SpriteRenderer spRend;
+
+        //GENES
+        [SerializeField]
+        private Color color;
+        [SerializeField]
+        private float size = 1f;
 
         private void OnValidate()
         {
@@ -29,7 +29,8 @@ namespace Game.Creature
         public override void Init()
         {
             spRend.sprite = myDNA.SpecieImage;
-            spRend.color = color;
+            spRend.color = myGenes.color;
+            size = myGenes.size;
             transform.localScale = Vector3.one * size;
 
             _tieObj.SetActive(myDNA.gender == GenderTypes.FEMALE);

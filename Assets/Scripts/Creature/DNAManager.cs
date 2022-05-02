@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.DNAs;
+using Game.DNAs.Genes;
 using NaughtyAttributes;
 
 namespace Game.Creature
@@ -9,8 +10,9 @@ namespace Game.Creature
     public class DNAManager : MonoBehaviour
     {
         public BestDNA BestDNA;
+        public GeneManager geneManager;
 
-
+        [SerializeField]
         private DNA myDNA;
 
         public void StartNewLife()
@@ -34,10 +36,11 @@ namespace Game.Creature
         private void ConfigureLife()
         {
             gameObject.name = myDNA.gender+" "+ myDNA.SpecieTag+" "+gameObject.GetInstanceID();
+            geneManager.InitializeGenes(myDNA);
             var obj = gameObject.GetComponentsInChildren<IDNAUser>();
             foreach (var item in obj)
             {
-                 item.Configure(myDNA);
+                 item.Configure(myDNA, geneManager);
             }
         }
 
